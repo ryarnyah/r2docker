@@ -1,30 +1,3 @@
-# r2docker
-# ========
-#
-# Build docker image with:
-# $ docker build -t r2docker:1.3.0 .
-#
-# Run the docker image:
-# $ docker images
-# $ export DOCKER_IMAGE_ID=$(docker images --format '{{.ID}}' -f 'label=r2docker')
-# $ docker run -ti r2docker:1.3.0
-#
-# Once you quit the bash session get the container id with:
-# $ docker ps -a | grep bash
-#
-# To get into that shell again just type:
-# $ docker start -ai <containedid>
-#
-# To share those images:
-# $ docker export <containerid> | xz > container.xz
-# $ xz -d < container.xz | docker import -
-#
-#
-# If you willing to debug a program within Docker, you should run it in privileged mode:
-#
-# $ docker run -it --cap-add=SYS_PTRACE --cap-drop=ALL radare/radare2
-# $ r2 -d /bin/true
-#
 FROM debian:8
 
 LABEL r2docker 1.3.0
